@@ -22,4 +22,12 @@
         android:name="com.example.mobileexchange.ui.slideshow.SlideshowFragment"
         android:label="@string/menu_slideshow"
         tools:layout="@layout/fragment_slideshow" />
+
+    <fragment
+        android:id="@+id/flashlightFragment"
+        android:name="com.example.mobileexchange.ui.flashlight.FlashlightFragment"
+        android:label="@string/menu_flashlight"
+        tools:layout="@layout/fragment_flashlight">
+    </fragment>
+
 </navigation>
