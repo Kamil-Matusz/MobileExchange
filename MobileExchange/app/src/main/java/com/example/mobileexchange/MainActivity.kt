@@ -38,7 +38,7 @@ class MainActivity : AppCompatActivity() {
         // menu should be considered as top level destinations.
         appBarConfiguration = AppBarConfiguration(
             setOf(
-                R.id.nav_home, R.id.nav_gallery, R.id.nav_slideshow
+                R.id.nav_home, R.id.nav_gallery, R.id.nav_slideshow,R.id.nav_flashlight
             ), drawerLayout
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
@@ -61,7 +61,7 @@ class MainActivity : AppCompatActivity() {
             R.id.action_flashlight -> {
                 // Naviguj do FlashlightFragment
                 findNavController(R.id.nav_host_fragment_content_main)
-                        .navigate(R.id.flashlightFragment)
+                        .navigate(R.id.nav_flashlight)
                 return true
             }
             else -> return super.onOptionsItemSelected(item)
