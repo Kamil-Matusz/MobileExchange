@@ -8,4 +8,5 @@ class Currency(
     var CHF: Double,
     var CNY: Double,
     var JPY: Double,
+    var RUB: Double,
 )

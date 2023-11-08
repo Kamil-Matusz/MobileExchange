@@ -26,13 +26,9 @@ class ExchangeRateFragment : Fragment() {
         val root: View = binding.root
 
         exchangeRateViewModel = ViewModelProvider(this).get(ExchangeRateViewModel::class.java)
-
-        // Observe the LiveData in the ViewModel
         exchangeRateViewModel.exchangeRates.observe(viewLifecycleOwner) { currency ->
             updateUI(currency)
         }
-
-        // Trigger the network request to get the exchange rates
         exchangeRateViewModel.getExchangeRates()
 
         return root
@@ -47,6 +43,7 @@ class ExchangeRateFragment : Fragment() {
         binding.chf.text = "CHF: ${currency.CHF}"
         binding.cny.text = "CNY: ${currency.CNY}"
         binding.jpy.text = "JPY: ${currency.JPY}"
+        binding.rub.text = "RUB: ${currency.RUB}"
     }
 
     override fun onDestroyView() {
