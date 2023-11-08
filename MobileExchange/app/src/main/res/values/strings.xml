@@ -12,4 +12,13 @@
     <string name="menu_slideshow">Slideshow</string>
     <string name="menu_flashlight">Flashlight</string>
     <string name="menu_exchange_rates">Exchange Rates</string>
+    <string name="usd">USD:</string>
+    <string name="gbp">GBP:</string>
+    <string name="eur">EUR:</string>
+    <string name="cad">CAD:</string>
+    <string name="chf">CHF:\n</string>
+    <string name="cny">CNY:</string>
+    <string name="jpy">JPY:</string>
+    <string name="error" />
+    <string name="baseCurrency" />
 </resources>
