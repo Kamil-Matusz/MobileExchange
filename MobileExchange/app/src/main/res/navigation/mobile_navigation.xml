@@ -30,4 +30,10 @@
         tools:layout="@layout/fragment_flashlight">
     </fragment>
 
+    <fragment
+        android:id="@+id/nav_exchange_rates"
+        android:name="com.example.mobileexchange.ui.exchange_rate.ExchangeRateFragment"
+        android:label="@string/menu_exchange_rates"
+        tools:layout="@layout/fragment_currency_rates">
+    </fragment>
 </navigation>

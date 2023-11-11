@@ -1,5 +1,6 @@
 package com.example.mobileexchange
 
+import android.app.DownloadManager
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
@@ -12,6 +13,8 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.appcompat.app.AppCompatActivity
+import com.example.mobileexchange.R.id.action_currencyRates
+import com.example.mobileexchange.R.id.action_flashlight
 import com.example.mobileexchange.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -38,7 +41,7 @@ class MainActivity : AppCompatActivity() {
         // menu should be considered as top level destinations.
         appBarConfiguration = AppBarConfiguration(
             setOf(
-                R.id.nav_home, R.id.nav_gallery, R.id.nav_slideshow,R.id.nav_flashlight
+                R.id.nav_home, R.id.nav_gallery, R.id.nav_slideshow,R.id.nav_flashlight,R.id.nav_exchange_rates
             ), drawerLayout
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
@@ -58,14 +61,18 @@ class MainActivity : AppCompatActivity() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
-            R.id.action_flashlight -> {
+            action_flashlight -> {
                 // Naviguj do FlashlightFragment
                 findNavController(R.id.nav_host_fragment_content_main)
                         .navigate(R.id.nav_flashlight)
                 return true
             }
+            action_currencyRates -> {
+                findNavController(R.id.nav_host_fragment_content_main)
+                    .navigate(R.id.nav_exchange_rates)
+                return true
+            }
             else -> return super.onOptionsItemSelected(item)
         }
     }
-
 }

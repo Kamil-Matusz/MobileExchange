@@ -13,4 +13,9 @@
         android:title="Flashlight"
         app:showAsAction="ifRoom" />
 
+    <item
+        android:id="@+id/action_currencyRates"
+        android:icon="@drawable/ic_menu_exchange_rates"
+        android:title="Exchange Rates"
+        app:showAsAction="ifRoom" />
 </menu>
