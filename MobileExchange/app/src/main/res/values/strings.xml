@@ -22,4 +22,5 @@
     <string name="error" />
     <string name="baseCurrency" />
     <string name="rub">RUB:</string>
+    <string name="menu_exchange_calculator">Exchange Calculator\n</string>
 </resources>

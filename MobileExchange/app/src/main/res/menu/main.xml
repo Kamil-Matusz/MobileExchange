@@ -18,4 +18,9 @@
         android:icon="@drawable/ic_menu_exchange_rates"
         android:title="Exchange Rates"
         app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/action_exchangeCalculator"
+        android:icon="@drawable/ic_menu_calculator"
+        android:title="Exchange Calculator"
+        app:showAsAction="ifRoom" />
 </menu>

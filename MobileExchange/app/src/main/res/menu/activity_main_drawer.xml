@@ -24,5 +24,9 @@
             android:id="@+id/nav_exchange_rates"
             android:icon="@drawable/ic_menu_exchange_rates"
             android:title="@string/menu_exchange_rates" />
+        <item
+            android:id="@+id/nav_exchange_calculator"
+            android:icon="@drawable/ic_menu_calculator"
+            android:title="@string/menu_exchange_calculator" />
     </group>
 </menu>
