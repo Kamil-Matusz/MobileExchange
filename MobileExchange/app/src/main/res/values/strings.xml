@@ -43,4 +43,7 @@
         <item>CNY</item>
         <item>JPY</item>
     </string-array>
+
+    <string name="result_text">Result: %.2f %s</string>
 </resources>
+

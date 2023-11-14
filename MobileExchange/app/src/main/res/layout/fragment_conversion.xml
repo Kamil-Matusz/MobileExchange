@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -24,50 +25,51 @@
             android:orientation="vertical"
             android:gravity="center">
 
+            <!-- Dodaj pole EditText dla kwoty -->
+            <EditText
+                android:id="@+id/editTextAmount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="5"
+                android:hint="Amount"
+                android:inputType="numberDecimal"/>
+
             <LinearLayout
-                android:id="@+id/ll_firstConversion"
+                android:id="@+id/ll_currencyConversion"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:gravity="center_vertical">
 
-                <EditText
-                    android:id="@+id/et_firstConversion"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:ems="5"
-                    android:hint="From"
-                    android:inputType="number"/>
-
+                <!-- Użyj spinnera zamiast pola do edycji dla "From" -->
                 <Spinner
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/spinner_firstConversion"/>
+                    android:id="@+id/spinner_from"/>
+
+                <!-- Użyj spinnera zamiast pola do edycji dla "To" -->
+                <Spinner
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/spinner_to"/>
 
             </LinearLayout>
 
-            <LinearLayout
-                android:id="@+id/ll_secondConversion"
+            <!-- Dodaj przycisk do przeliczania -->
+            <Button
+                android:id="@+id/buttonConvert"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="center_vertical">
+                android:text="Convert"/>
 
-                <EditText
-                    android:id="@+id/et_secondConversion"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:ems="5"
-                    android:hint="To"
-                    android:inputType="number"/>
-
-                <Spinner
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/spinner_secondConversion"/>
-
-            </LinearLayout>
-
+            <!-- Dodaj pole tekstowe do wyświetlania wyniku -->
+            <TextView
+                android:id="@+id/textViewResult"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Result: "
+                android:textSize="18sp"
+                android:layout_marginTop="10dp"/>
         </LinearLayout>
 
     </androidx.cardview.widget.CardView>
