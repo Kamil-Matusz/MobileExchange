@@ -3,7 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/nav_home">
+    app:startDestination="@+id/nav_home"
+    tools:ignore="ExtraText">
 
     <fragment
         android:id="@+id/nav_home"
@@ -36,4 +37,13 @@
         android:label="@string/menu_exchange_rates"
         tools:layout="@layout/fragment_currency_rates">
     </fragment>
+
+    <fragment
+        android:id="@+id/nav_exchange_calculator"
+        android:name="com.example.mobileexchange.ui.exchange_calculator.ConversionFragment"
+        android:label="@string/menu_exchange_calculator"
+        tools:layout="@layout/fragment_conversion">
+    </fragment>
+
+
 </navigation>
