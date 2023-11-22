@@ -45,5 +45,12 @@
         tools:layout="@layout/fragment_conversion">
     </fragment>
 
+    <fragment
+        android:id="@+id/nav_coordinates"
+        android:name="com.example.mobileexchange.ui.coordinates.CoordinatesFragment"
+        android:label="@string/menu_coordinates"
+        tools:layout="@layout/fragment_coordinates">
+    </fragment>
+
 
 </navigation>
