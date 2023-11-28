@@ -23,4 +23,9 @@
         android:icon="@drawable/ic_menu_calculator"
         android:title="Exchange Calculator"
         app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/action_maps"
+        android:icon="@drawable/ic_menu_maps"
+        android:title="Maps"
+        app:showAsAction="ifRoom" />
 </menu>

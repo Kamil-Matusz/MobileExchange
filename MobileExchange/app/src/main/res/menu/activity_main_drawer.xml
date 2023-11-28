@@ -33,5 +33,10 @@
             android:id="@+id/nav_coordinates"
             android:icon="@drawable/ic_menu_coordinates"
             android:title="@string/menu_coordinates" />
+
+        <item
+            android:id="@+id/nav_maps"
+            android:icon="@drawable/ic_menu_maps"
+            android:title="@string/menu_maps" />
     </group>
 </menu>
