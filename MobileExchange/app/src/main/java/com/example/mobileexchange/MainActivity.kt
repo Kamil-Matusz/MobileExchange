@@ -16,6 +16,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.mobileexchange.R.id.action_currencyRates
 import com.example.mobileexchange.R.id.action_exchangeCalculator
 import com.example.mobileexchange.R.id.action_flashlight
+import com.example.mobileexchange.R.id.action_maps
 import com.example.mobileexchange.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -42,7 +43,7 @@ class MainActivity : AppCompatActivity() {
         // menu should be considered as top level destinations.
         appBarConfiguration = AppBarConfiguration(
             setOf(
-                R.id.nav_home, R.id.nav_gallery, R.id.nav_slideshow,R.id.nav_flashlight,R.id.nav_exchange_rates,R.id.nav_exchange_calculator
+                R.id.nav_home,R.id.nav_flashlight,R.id.nav_exchange_rates,R.id.nav_exchange_calculator,R.id.nav_maps
             ), drawerLayout
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
@@ -77,7 +78,14 @@ class MainActivity : AppCompatActivity() {
                     .navigate(R.id.nav_exchange_calculator)
                 return true
             }
-            else -> return super.onOptionsItemSelected(item)
+            action_maps -> {
+                findNavController(R.id.nav_host_fragment_content_main)
+                    .navigate(R.id.nav_maps)
+                return true
+            }
+            else -> {
+                return super.onOptionsItemSelected(item)
+            }
         }
     }
 }
