@@ -50,5 +50,6 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="title_activity_maps">MapsActivity</string>
     <string name="menu_maps">Maps</string>
+    <string name="google_maps_api_key">AIzaSyA-EPMJRWJI85dxGgeHi8kxahQm0TUEMKQ</string>
 </resources>
 
