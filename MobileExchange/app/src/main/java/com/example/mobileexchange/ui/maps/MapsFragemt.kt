@@ -111,7 +111,7 @@ class MapsFragment : Fragment(), OnMapReadyCallback, GoogleMap.OnMapClickListene
 
     @SuppressLint("MissingPermission")
     private fun addNearbyCurrencyExchangeMarkers() {
-        val placeFields = listOf(Place.Field.NAME, Place.Field.LAT_LNG)
+        val placeFields = listOf(Place.Field.NAME, Place.Field.LAT_LNG, Place.Field.ADDRESS)
         val request = FindCurrentPlaceRequest.builder(placeFields).build()
 
         placesClient.findCurrentPlace(request).addOnCompleteListener { task ->
@@ -121,20 +121,21 @@ class MapsFragment : Fragment(), OnMapReadyCallback, GoogleMap.OnMapClickListene
                     val place = placeLikelihood.place
                     val placeLatLng = place.latLng
                     val placeName = place.name
+                    val placeAddress = place.address // Dodatkowa informacja - adres
 
-                    // Dodawanie znacznika dla każdego pobliskiego kantoru
+                    // Dodawanie znacznika dla każdego pobliskiego kantoru z nazwą i adresem
                     placeLatLng?.let {
                         val markerOptions = MarkerOptions()
                             .position(it)
                             .title(placeName)
-                            .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN)) // Ustawienie koloru markera na zielony
+                            .snippet(placeAddress) // Ustawienie adresu jako dodatkowej informacji na markerze
+                            .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN))
                         mMap.addMarker(markerOptions)
                     }
                 }
             }
         }
     }
-
     override fun onMapClick(p0: LatLng) {
         // TODO: Obsługa kliknięcia na mapie
     }
