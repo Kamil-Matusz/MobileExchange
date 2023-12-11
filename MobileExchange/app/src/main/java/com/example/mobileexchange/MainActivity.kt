@@ -83,6 +83,11 @@ class MainActivity : AppCompatActivity() {
                     .navigate(R.id.nav_maps)
                 return true
             }
+            action_coordinates -> {
+                findNavController(R.id.nav_host_fragment_content_main)
+                    .navigate(R.id.nav_coordinates)
+                return true
+            }
             else -> {
                 return super.onOptionsItemSelected(item)
             }

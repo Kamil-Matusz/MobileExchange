@@ -28,4 +28,9 @@
         android:icon="@drawable/ic_menu_maps"
         android:title="Maps"
         app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/action_coordinates"
+        android:icon="@drawable/ic_menu_coordinates"
+        android:title="Coordinates"
+        app:showAsAction="ifRoom" />
 </menu>
