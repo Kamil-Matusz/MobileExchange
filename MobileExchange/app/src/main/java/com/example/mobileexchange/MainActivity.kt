@@ -17,6 +17,8 @@ import com.example.mobileexchange.R.id.action_currencyRates
 import com.example.mobileexchange.R.id.action_exchangeCalculator
 import com.example.mobileexchange.R.id.action_flashlight
 import com.example.mobileexchange.R.id.action_maps
+import com.example.mobileexchange.R.id.action_coordinates
+import com.example.mobileexchange.R.id.action_billRecognition
 import com.example.mobileexchange.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -86,6 +88,11 @@ class MainActivity : AppCompatActivity() {
             action_coordinates -> {
                 findNavController(R.id.nav_host_fragment_content_main)
                     .navigate(R.id.nav_coordinates)
+                return true
+            }
+            action_billRecognition -> {
+                findNavController(R.id.nav_host_fragment_content_main)
+                    .navigate(R.id.nav_bill_recognition)
                 return true
             }
             else -> {
