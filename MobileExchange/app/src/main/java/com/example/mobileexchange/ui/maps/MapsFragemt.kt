@@ -105,7 +105,7 @@ class MapsFragment : Fragment(), OnMapReadyCallback, GoogleMap.OnMapClickListene
 
     private fun placeMarkedOnMap(currentLatLong: LatLng) {
         val markerOptions = MarkerOptions().position(currentLatLong)
-        markerOptions.title("$currentLatLong")
+        markerOptions.title("Your Location")
         mMap.addMarker(markerOptions)
     }
 
@@ -121,14 +121,13 @@ class MapsFragment : Fragment(), OnMapReadyCallback, GoogleMap.OnMapClickListene
                     val place = placeLikelihood.place
                     val placeLatLng = place.latLng
                     val placeName = place.name
-                    val placeAddress = place.address // Dodatkowa informacja - adres
+                    val placeAddress = place.address
 
-                    // Dodawanie znacznika dla każdego pobliskiego kantoru z nazwą i adresem
                     placeLatLng?.let {
                         val markerOptions = MarkerOptions()
                             .position(it)
                             .title(placeName)
-                            .snippet(placeAddress) // Ustawienie adresu jako dodatkowej informacji na markerze
+                            .snippet(placeAddress) 
                             .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN))
                         mMap.addMarker(markerOptions)
                     }
