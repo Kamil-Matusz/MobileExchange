@@ -12,6 +12,7 @@ import kotlinx.coroutines.launch
 import java.io.InputStreamReader
 import java.net.HttpURLConnection
 import java.net.URL
+import java.text.DecimalFormat
 
 class ExchangeRateViewModel : ViewModel() {
 
@@ -19,7 +20,7 @@ class ExchangeRateViewModel : ViewModel() {
     val exchangeRates: LiveData<Currency> = _exchangeRates
 
     // Dummy data for testing
-    private val dummyRates = Currency(1.0, 0.75, 0.85, 1.2, 1.1, 6.5, 110.0, 110.0)
+    private val dummyRates = Currency(1.0, 0.75, 0.85, 1.2, 1.1, 6.5, 110.0, 110.0, 47.7, 20.0)
 
     fun getExchangeRates() {
         GlobalScope.launch(Dispatchers.IO) {
@@ -31,7 +32,20 @@ class ExchangeRateViewModel : ViewModel() {
                     val inputSystem = connection.inputStream
                     val inputStreamReader = InputStreamReader(inputSystem, "UTF-8")
                     val request = Gson().fromJson(inputStreamReader, Request::class.java)
-                    _exchangeRates.postValue(request.rates)
+                    val roundedRates = Currency(
+                        request.rates.USD.roundToTwoDecimal(),
+                        request.rates.GBP.roundToTwoDecimal(),
+                        request.rates.EUR.roundToTwoDecimal(),
+                        request.rates.CAD.roundToTwoDecimal(),
+                        request.rates.CHF.roundToTwoDecimal(),
+                        request.rates.CNY.roundToTwoDecimal(),
+                        request.rates.JPY.roundToTwoDecimal(),
+                        request.rates.RUB.roundToTwoDecimal(),
+                        request.rates.BRL.roundToTwoDecimal(),
+                        request.rates.INR.roundToTwoDecimal(),
+                    )
+
+                    _exchangeRates.postValue(roundedRates)
                     inputStreamReader.close()
                     inputSystem.close()
                 }
@@ -39,4 +53,9 @@ class ExchangeRateViewModel : ViewModel() {
             }
         }
     }
+}
+
+private fun Double.roundToTwoDecimal(): Double {
+    val decimalFormat = DecimalFormat("#.##")
+    return decimalFormat.format(this).toDouble()
 }
