@@ -96,7 +96,7 @@ class MainActivity : AppCompatActivity(), SensorEventListener {
             }
             action_exchangeCalculator -> {
                 findNavController(R.id.nav_host_fragment_content_main)
-                    .navigate(R.id.nav_exchange_calculator)
+                    .navigate(nav_exchange_calculator)
                 return true
             }
             action_maps -> {

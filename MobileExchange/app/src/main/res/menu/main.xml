@@ -33,4 +33,9 @@
         android:icon="@drawable/ic_menu_coordinates"
         android:title="Coordinates"
         app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/action_home"
+        android:icon="@drawable/ic_menu_coordinates"
+        android:title="Coordinates"
+        app:showAsAction="ifRoom" />
 </menu>
