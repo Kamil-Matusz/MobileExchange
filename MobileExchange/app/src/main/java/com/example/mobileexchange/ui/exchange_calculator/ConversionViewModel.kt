@@ -1,23 +1,35 @@
 package com.example.mobileexchange.ui.exchange_calculator
 
+import android.app.Application
+import android.content.Context
+import android.net.ConnectivityManager
+import android.os.Handler
+import android.os.Looper
+import android.widget.Toast
+import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-class ConversionViewModel : ViewModel() {
+class ConversionViewModel(application: Application) : AndroidViewModel(application) {
 
     private val _exchangeRates = MutableLiveData<Map<String, Double>>()
     val exchangeRates: LiveData<Map<String, Double>> = _exchangeRates
 
     init {
-        // Tutaj można dodać kod do pobierania kursów walut
-        // W tym przykładzie używam Retrofit do komunikacji z API
+        // Tutaj można dodać kod do sprawdzenia dostępności internetu
+        if (isNetworkAvailable()) {
+            fetchExchangeRates()
+        } else {
+            showToast("No internet connection.")
+        }
+    }
 
+    private fun fetchExchangeRates() {
         val retrofit = Retrofit.Builder()
             .baseUrl("https://openexchangerates.org/")
             .addConverterFactory(GsonConverterFactory.create())
@@ -54,5 +66,17 @@ class ConversionViewModel : ViewModel() {
 
         // Zwróć kwotę bez przeliczania, jeśli nie mamy kursów walut
         return amount
+    }
+
+    private fun isNetworkAvailable(): Boolean {
+        val connectivityManager = getApplication<Application>().getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+        val activeNetworkInfo = connectivityManager.activeNetworkInfo
+        return activeNetworkInfo != null && activeNetworkInfo.isConnected
+    }
+
+    private fun showToast(message: String) {
+        Handler(Looper.getMainLooper()).post {
+            Toast.makeText(getApplication(), message, Toast.LENGTH_SHORT).show()
+        }
     }
 }
