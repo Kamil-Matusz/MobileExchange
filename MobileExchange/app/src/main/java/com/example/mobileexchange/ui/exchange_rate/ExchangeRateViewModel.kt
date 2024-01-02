@@ -26,7 +26,7 @@ class ExchangeRateViewModel(application: Application) : AndroidViewModel(applica
     val exchangeRates: LiveData<Currency> = _exchangeRates
 
     // Dummy data for testing
-    private val dummyRates = Currency(1.0, 0.75, 0.85, 1.2, 1.1, 6.5, 110.0, 110.0, 47.7, 20.0)
+    private val dummyRates = Currency(1.00, 0.75, 0.85, 1.2, 1.1, 6.5, 110.0, 110.0, 47.7, 20.0)
 
     init {
         // Tutaj można dodać kod do sprawdzenia dostępności internetu

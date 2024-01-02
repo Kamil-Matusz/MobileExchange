@@ -36,7 +36,6 @@ class ExchangeRateFragment : Fragment() {
 
     private fun updateUI(currency: Currency) {
         // Update UI with the exchange rates
-        binding.usd.text = "American Dolar (USD): ${currency.USD} $"
         binding.gbp.text = "British Pound Sterling (GBP): ${currency.GBP} $"
         binding.eur.text = "Euro (EUR): ${currency.EUR} $"
         binding.cad.text = "Canadian Dolar (CAD): ${currency.CAD} $"
