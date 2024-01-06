@@ -10,11 +10,16 @@ import android.widget.FrameLayout
 import androidx.camera.view.CameraController
 import androidx.camera.view.LifecycleCameraController
 import androidx.compose.foundation.background
+import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Recomposer
@@ -24,6 +29,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.ComposeView
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
@@ -76,7 +82,7 @@ class BillRecognitionFragment : Fragment() {
                     }
                     Box(
                         modifier = Modifier
-                            .fillMaxSize()
+                            .fillMaxWidth()
                     ) {
                         CameraPreview(controller, Modifier.fillMaxSize())
 
@@ -97,6 +103,41 @@ class BillRecognitionFragment : Fragment() {
                                     color = MaterialTheme.colorScheme.primary
                                 )
                             }
+                        }
+
+                        // Green square stroke in the center
+                        Box(
+                            modifier = Modifier
+                                .size(480.dp, 240.dp)
+                                .align(Alignment.Center)
+                                .background(Color.Transparent)
+                                .border(4.dp, Color.Green)
+                        )
+
+
+                        // Crosshair
+                        Box(
+                            modifier = Modifier
+                                .size(480.dp) // Size of the crosshair
+                                .align(Alignment.Center)
+                        ) {
+                            // Horizontal line
+                            Box(
+                                modifier = Modifier
+                                    .fillMaxWidth()
+                                    .height(2.dp) // Thickness of the horizontal line
+                                    .background(Color.Green) // Color of the horizontal line
+                                    .align(Alignment.Center)
+                            )
+
+                            // Vertical line
+                            Box(
+                                modifier = Modifier
+                                    .fillMaxHeight(0.5f)
+                                    .width(2.dp) // Thickness of the vertical line
+                                    .background(Color.Green) // Color of the vertical line
+                                    .align(Alignment.Center)
+                            )
                         }
                     }
                 }
