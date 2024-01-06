@@ -32,6 +32,8 @@
         <item>CHF</item>
         <item>CNY</item>
         <item>JPY</item>
+        <item>BRL</item>
+        <item>INR</item>
     </string-array>
 
     <string-array name="currencies2">
@@ -42,6 +44,8 @@
         <item>CHF</item>
         <item>CNY</item>
         <item>JPY</item>
+        <item>BRL</item>
+        <item>INR</item>
     </string-array>
 
     <string name="result_text">Result: %.2f %s</string>
@@ -51,5 +55,8 @@
     <string name="title_activity_maps">MapsActivity</string>
     <string name="menu_maps">Maps</string>
     <string name="google_maps_api_key">AIzaSyA-EPMJRWJI85dxGgeHi8kxahQm0TUEMKQ</string>
+    <string name="info">Rates against $</string>
+    <string name="brl">BRL:</string>
+    <string name="inr">INR:\n</string>
 </resources>
 

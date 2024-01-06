@@ -36,14 +36,16 @@ class ExchangeRateFragment : Fragment() {
 
     private fun updateUI(currency: Currency) {
         // Update UI with the exchange rates
-        binding.usd.text = "USD: ${currency.USD}"
-        binding.gbp.text = "GBP: ${currency.GBP}"
-        binding.eur.text = "EUR: ${currency.EUR}"
-        binding.cad.text = "CAD: ${currency.CAD}"
-        binding.chf.text = "CHF: ${currency.CHF}"
-        binding.cny.text = "CNY: ${currency.CNY}"
-        binding.jpy.text = "JPY: ${currency.JPY}"
-        binding.rub.text = "RUB: ${currency.RUB}"
+        binding.usd.text = "American Dolar (USD): ${currency.USD} $"
+        binding.gbp.text = "British Pound Sterling (GBP): ${currency.GBP} $"
+        binding.eur.text = "Euro (EUR): ${currency.EUR} $"
+        binding.cad.text = "Canadian Dolar (CAD): ${currency.CAD} $"
+        binding.chf.text = "Swiss Franc (CHF): ${currency.CHF} $"
+        binding.cny.text = "Chinese Yuan (CNY): ${currency.CNY} $"
+        binding.jpy.text = "Yen (JPY): ${currency.JPY} $"
+        binding.rub.text = "Russian Ruble (RUB): ${currency.RUB} $"
+        binding.brl.text = "Brazilian Real (BRL): ${currency.BRL} $"
+        binding.inr.text = "Indian rupee (INR): ${currency.INR} $"
     }
 
     override fun onDestroyView() {
