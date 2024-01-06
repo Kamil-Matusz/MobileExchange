@@ -58,4 +58,11 @@
         android:label="@string/menu_coordinates"
         tools:layout="@layout/fragment_maps">
     </fragment>
+
+    <fragment
+        android:id="@+id/nav_bill_recognition"
+        android:name="com.example.mobileexchange.ui.bill_recognition.BillRecognitionFragment"
+        android:label="Bill Recognition"
+        tools:layout="@layout/fragment_maps">
+    </fragment>
 </navigation>

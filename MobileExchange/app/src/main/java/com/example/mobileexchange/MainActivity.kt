@@ -24,6 +24,7 @@ import com.example.mobileexchange.R.id.action_flashlight
 import com.example.mobileexchange.R.id.action_maps
 import com.example.mobileexchange.R.id.action_coordinates
 import com.example.mobileexchange.R.id.nav_exchange_calculator
+import com.example.mobileexchange.R.id.action_billRecognition
 import com.example.mobileexchange.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity(), SensorEventListener {
@@ -107,6 +108,11 @@ class MainActivity : AppCompatActivity(), SensorEventListener {
             action_coordinates -> {
                 findNavController(R.id.nav_host_fragment_content_main)
                     .navigate(R.id.nav_coordinates)
+                return true
+            }
+            action_billRecognition -> {
+                findNavController(R.id.nav_host_fragment_content_main)
+                    .navigate(R.id.nav_bill_recognition)
                 return true
             }
             else -> {
