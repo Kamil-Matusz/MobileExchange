@@ -23,6 +23,7 @@ import com.example.mobileexchange.R.id.action_exchangeCalculator
 import com.example.mobileexchange.R.id.action_flashlight
 import com.example.mobileexchange.R.id.action_maps
 import com.example.mobileexchange.R.id.action_coordinates
+import com.example.mobileexchange.R.id.nav_exchange_calculator
 import com.example.mobileexchange.R.id.action_billRecognition
 import com.example.mobileexchange.databinding.ActivityMainBinding
 
@@ -42,10 +43,12 @@ class MainActivity : AppCompatActivity(), SensorEventListener {
         setSupportActionBar(binding.appBarMain.toolbar)
 
         binding.appBarMain.fab.setOnClickListener { view ->
-            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                .setAction("Action", null).show()
+            Snackbar.make(view, "Exchange Calculator", Snackbar.LENGTH_LONG)
+                .setAction("Go to Calculator") {
+                    findNavController(R.id.nav_host_fragment_content_main)
+                        .navigate(R.id.nav_exchange_calculator)
+                }.show()
         }
-
         sensorManager = getSystemService(Context.SENSOR_SERVICE) as SensorManager
         lightSensor = sensorManager.getDefaultSensor(Sensor.TYPE_LIGHT)
 
@@ -94,7 +97,7 @@ class MainActivity : AppCompatActivity(), SensorEventListener {
             }
             action_exchangeCalculator -> {
                 findNavController(R.id.nav_host_fragment_content_main)
-                    .navigate(R.id.nav_exchange_calculator)
+                    .navigate(nav_exchange_calculator)
                 return true
             }
             action_maps -> {

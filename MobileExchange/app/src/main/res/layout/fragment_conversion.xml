@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="ui.exchange_calculator.ConversionFragment"
-    android:background="#E8E8E8">
+    android:background="#7F3D8E">
 
     <androidx.cardview.widget.CardView
         android:layout_centerHorizontal="true"
