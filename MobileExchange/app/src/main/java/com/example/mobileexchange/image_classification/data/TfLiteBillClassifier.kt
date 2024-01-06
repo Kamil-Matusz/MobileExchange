@@ -2,6 +2,7 @@ package com.example.mobileexchange.image_classification.data
 
 import android.content.Context
 import android.graphics.Bitmap
+import android.util.Log
 import android.view.Surface
 import com.example.mobileexchange.image_classification.domain.BillClassifier
 import com.example.mobileexchange.image_classification.domain.Classification
@@ -32,7 +33,7 @@ class TfLiteBillClassifier(
         try {
             classifier = ImageClassifier.createFromFileAndOptions(
                 context,
-                "landmarks.tflite",
+                "bill_model_v5_metadata.tflite",
                 options
             )
         } catch (e: IllegalStateException) {
@@ -49,15 +50,16 @@ class TfLiteBillClassifier(
         val tensorImage = imageProcessor.process(TensorImage.fromBitmap(bitmap))
 
         val imageProcessingOptions = ImageProcessingOptions.builder()
-            .setOrientation(getOrientationFromRotation(rotation))
             .build()
 
         val results = classifier?.classify(tensorImage, imageProcessingOptions)
 
+        Log.i("LOG1", results.toString())
+
         return results?.flatMap { classications ->
             classications.categories.map { category ->
                 Classification(
-                    name = category.displayName,
+                    name = category.label,
                     score = category.score
                 )
             }
