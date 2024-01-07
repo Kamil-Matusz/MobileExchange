@@ -7,6 +7,7 @@ import android.hardware.SensorEvent
 import android.hardware.SensorEventListener
 import android.hardware.SensorManager
 import android.os.Bundle
+import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import com.google.android.material.snackbar.Snackbar
@@ -102,13 +103,16 @@ class MainActivity : AppCompatActivity(), SensorEventListener {
     override fun onSensorChanged(event: SensorEvent?) {
         if (event?.sensor?.type == Sensor.TYPE_LIGHT) {
             val lightLevel = event.values[0]
+//            Log.i("TAGLight", "${lightLevel}")
             adjustBrightness(lightLevel)
         }
     }
 
     private fun adjustBrightness(lightLevel: Float) {
         val layoutParams = window.attributes
-        layoutParams.screenBrightness = lightLevel / SensorManager.LIGHT_SUNLIGHT_MAX
+        val brightness = lightLevel / SensorManager.LIGHT_SUNLIGHT_MAX
+        Log.i("TAGLight", "${brightness}")
+        layoutParams.screenBrightness = lightLevel / 100
         window.attributes = layoutParams
     }
 }
