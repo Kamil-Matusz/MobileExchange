@@ -7,6 +7,7 @@ import android.hardware.SensorEvent
 import android.hardware.SensorEventListener
 import android.hardware.SensorManager
 import android.os.Bundle
+import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import com.google.android.material.snackbar.Snackbar
@@ -18,13 +19,6 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.appcompat.app.AppCompatActivity
-import com.example.mobileexchange.R.id.action_currencyRates
-import com.example.mobileexchange.R.id.action_exchangeCalculator
-import com.example.mobileexchange.R.id.action_flashlight
-import com.example.mobileexchange.R.id.action_maps
-import com.example.mobileexchange.R.id.action_coordinates
-import com.example.mobileexchange.R.id.nav_exchange_calculator
-import com.example.mobileexchange.R.id.action_billRecognition
 import com.example.mobileexchange.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity(), SensorEventListener {
@@ -64,7 +58,7 @@ class MainActivity : AppCompatActivity(), SensorEventListener {
         // menu should be considered as top level destinations.
         appBarConfiguration = AppBarConfiguration(
             setOf(
-                R.id.nav_home,R.id.nav_flashlight,R.id.nav_exchange_rates,R.id.nav_exchange_calculator,R.id.nav_maps
+                R.id.nav_home,R.id.nav_flashlight,R.id.nav_exchange_rates,R.id.nav_exchange_calculator,R.id.nav_maps, R.id.nav_bill_recognition
             ), drawerLayout
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
@@ -85,36 +79,6 @@ class MainActivity : AppCompatActivity(), SensorEventListener {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
-            action_flashlight -> {
-                findNavController(R.id.nav_host_fragment_content_main)
-                        .navigate(R.id.nav_flashlight)
-                return true
-            }
-            action_currencyRates -> {
-                findNavController(R.id.nav_host_fragment_content_main)
-                    .navigate(R.id.nav_exchange_rates)
-                return true
-            }
-            action_exchangeCalculator -> {
-                findNavController(R.id.nav_host_fragment_content_main)
-                    .navigate(nav_exchange_calculator)
-                return true
-            }
-            action_maps -> {
-                findNavController(R.id.nav_host_fragment_content_main)
-                    .navigate(R.id.nav_maps)
-                return true
-            }
-            action_coordinates -> {
-                findNavController(R.id.nav_host_fragment_content_main)
-                    .navigate(R.id.nav_coordinates)
-                return true
-            }
-            action_billRecognition -> {
-                findNavController(R.id.nav_host_fragment_content_main)
-                    .navigate(R.id.nav_bill_recognition)
-                return true
-            }
             else -> {
                 return super.onOptionsItemSelected(item)
             }
@@ -139,13 +103,16 @@ class MainActivity : AppCompatActivity(), SensorEventListener {
     override fun onSensorChanged(event: SensorEvent?) {
         if (event?.sensor?.type == Sensor.TYPE_LIGHT) {
             val lightLevel = event.values[0]
+//            Log.i("TAGLight", "${lightLevel}")
             adjustBrightness(lightLevel)
         }
     }
 
     private fun adjustBrightness(lightLevel: Float) {
         val layoutParams = window.attributes
-        layoutParams.screenBrightness = lightLevel / SensorManager.LIGHT_SUNLIGHT_MAX
+        val brightness = lightLevel / SensorManager.LIGHT_SUNLIGHT_MAX
+        Log.i("TAGLight", "${brightness}")
+        layoutParams.screenBrightness = lightLevel / 100
         window.attributes = layoutParams
     }
 }

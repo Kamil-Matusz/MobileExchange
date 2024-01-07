@@ -58,5 +58,6 @@
     <string name="info">Rates against $</string>
     <string name="brl">BRL:</string>
     <string name="inr">INR:\n</string>
+    <string name="bill_recognition">Bill recognition</string>
 </resources>
 
