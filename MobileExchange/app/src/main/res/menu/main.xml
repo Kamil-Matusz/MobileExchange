@@ -1,42 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
-    <item
-        android:id="@+id/action_settings"
-        android:orderInCategory="100"
-        android:title="@string/action_settings"
-        app:showAsAction="never" />
 
-    <item
-        android:id="@+id/action_flashlight"
-        android:icon="@drawable/ic_menu_flashlight"
-        android:title="Flashlight"
-        app:showAsAction="ifRoom" />
-
-    <item
-        android:id="@+id/action_billRecognition"
-        android:icon="@drawable/ic_menu_flashlight"
-        android:title="Bill Recognition"
-        app:showAsAction="never" />
-
-    <item
-        android:id="@+id/action_currencyRates"
-        android:icon="@drawable/ic_menu_exchange_rates"
-        android:title="Exchange Rates"
-        app:showAsAction="ifRoom" />
-    <item
-        android:id="@+id/action_exchangeCalculator"
-        android:icon="@drawable/ic_menu_calculator"
-        android:title="Exchange Calculator"
-        app:showAsAction="ifRoom" />
-    <item
-        android:id="@+id/action_maps"
-        android:icon="@drawable/ic_menu_maps"
-        android:title="Maps"
-        app:showAsAction="ifRoom" />
-    <item
-        android:id="@+id/action_coordinates"
-        android:icon="@drawable/ic_menu_coordinates"
-        android:title="Coordinates"
-        app:showAsAction="ifRoom" />
 </menu>
