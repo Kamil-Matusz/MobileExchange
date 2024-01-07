@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.FrameLayout
+import androidx.camera.core.TorchState
 import androidx.camera.view.CameraController
 import androidx.camera.view.LifecycleCameraController
 import androidx.compose.foundation.background
@@ -20,6 +21,7 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
+import androidx.compose.material3.Button
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Recomposer
@@ -56,6 +58,8 @@ class BillRecognitionFragment : Fragment() {
     ): View {
         return ComposeView(requireContext()).apply {
             setContent {
+                // Inside the BillRecognitionFragment's Compose content
+                var isFlashOn by remember { mutableStateOf(false) } // State to track flashlight status
                 BillRecognitionTensorflowTheme {
                     val applicationContext = context
                     var classifications by remember {
@@ -138,6 +142,30 @@ class BillRecognitionFragment : Fragment() {
                                     .background(Color.Green) // Color of the vertical line
                                     .align(Alignment.Center)
                             )
+                        }
+
+                        Box(
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .align(Alignment.BottomCenter)
+                                .padding(bottom = 16.dp) // Adjust padding as needed
+                        ) {
+                            Button(
+                                onClick = {
+                                    // Toggle flashlight status
+                                    isFlashOn = !isFlashOn
+
+                                    // Access the camera controller and toggle flashlight
+                                    controller.cameraInfo?.torchState?.value?.let { torchState ->
+                                        controller.cameraControl?.enableTorch(torchState == TorchState.OFF)
+                                    }
+                                },
+                                modifier = Modifier
+                                    .fillMaxWidth()
+                                    .padding(8.dp)
+                            ) {
+                                Text(text = if (isFlashOn) "Turn the flashlight off" else "Turn the flashlight on")
+                            }
                         }
                     }
                 }
