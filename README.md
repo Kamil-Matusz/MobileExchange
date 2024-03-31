@@ -14,3 +14,15 @@ Mobile currency exchange office with the ability to view current currency rates,
 - Keras
 - TensorflowLite
 - Google API
+
+## GUI
+![](/assets/main_panel.png)
+![](/assets/navigation_panel.png)
+![](/assets/opne_flashlight.png)
+![](/assets/close_flashlight.png)
+![](/assets/exchange_rates.png)
+![](/assets/exchange_calculator.png)
+![](/assets/location_coordinates.png)
+![](/assets/your_location.png)
+![](/assets/maps.png)
+![](/assets/bill_recognition.png)
