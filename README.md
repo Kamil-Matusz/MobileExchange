@@ -24,5 +24,5 @@ Mobile currency exchange office with the ability to view current currency rates,
 ![](/assets/exchange_calculator.png)<br/>
 ![](/assets/location_coordinates.png)
 ![](/assets/your_location.png)
-![](/assets/maps.png)</br/>
+![](/assets/maps.png)<br/>
 ![](/assets/bill_recognition.png)
